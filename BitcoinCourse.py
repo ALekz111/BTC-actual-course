@@ -1,13 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 header = {
     'user-agent': 'Slinux'
 }
 
+now = datetime.datetime.now()
 BTC = 0
 link = 'https://www.okx.com/ru/price/bitcoin-btc'
 
+print("[₿] Actual Bitcoin Course:\n")
 while True:
     response = requests.get(link, headers=header).text
     soup = BeautifulSoup(response, 'lxml')
@@ -17,6 +20,6 @@ while True:
 
     if bitcoin_course != BTC:
         BTC = bitcoin_course
-        print(f"BTC: {BTC}")
+        print(f"BTC - [{now.strftime("%d-%m-%Y %H:%M")}] : {BTC}\n")
     else:
         continue
