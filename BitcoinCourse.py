@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import time
 
 header = {
     'user-agent': 'Slinux'
@@ -18,6 +17,6 @@ while True:
 
     if bitcoin_course != BTC:
         BTC = bitcoin_course
-        print(BTC)
+        print(f"BTC: {BTC}")
     else:
         continue
