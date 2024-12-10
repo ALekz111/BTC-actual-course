@@ -6,12 +6,12 @@ header = {
     'user-agent': 'Slinux'
 }
 
-now = datetime.datetime.now()
 BTC = 0
 link = 'https://www.okx.com/ru/price/bitcoin-btc'
 
 print("[₿] Actual Bitcoin Course:\n")
 while True:
+    now = datetime.datetime.now()
     response = requests.get(link, headers=header).text
     soup = BeautifulSoup(response, 'lxml')
     block = soup.find('div', id="price-detail-header")
